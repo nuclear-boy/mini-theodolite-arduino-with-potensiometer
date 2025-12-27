@@ -46,7 +46,7 @@ h_2 = h_1 \left( 1 + \frac{\tan(\theta_2)}{\tan(\theta_1)} \right)
 $$
 
 # series of devices
-![alt text](?raw=true)
+![alt text](https://github.com/nuclear-boy/mini-theodolite-arduino-with-potensiometer/blob/main/interconnection%20between%20devices.png?raw=true)
 
 Step 1: Gather Tools and Components Before you start soldering, ensure you have all the necessary items on your workbench. You will need a soldering iron, solder wire, wire cutters, and a multimeter. For the components, prepare your Arduino (Nano/Uno), the LCD screen with the I2C module attached, a 10k Ohm potentiometer, and the PCB board.
 
