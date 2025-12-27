@@ -1,4 +1,4 @@
-# mini-theodolite-arduino-with-potensiometer
+## mini-theodolite-arduino-with-potensiometer
 Inspired by the conventional theodolite used for measuring building heights, this device operates by converting ADC values from a potentiometer into angular measurements. By applying fundamental trigonometric principles, it calculates the height of the targeted object.
 
 # necessary tools and tool kits
@@ -8,6 +8,42 @@ To make a potentiometer, we need several devices such as:
 3. LCD 12X6 + I2C MODUL as a display devices
 
 * I recommend that you connect all components via PCB. Here, I am not using jumper cables.
+
+## Mathematical Model
+
+![alt text](https://github.com/nuclear-boy/mini-theodolite-arduino-with-potensiometer/blob/main/the%20mathematical%20operation%20of%20the%20device.png?raw=true)
+
+This project uses trigonometry to calculate the total height of an object ($h_2$) based on the fixed height of the measuring device ($h_1$) and two measured angles.
+
+### Parameters
+* **$h_1$**: The height of the device from the ground (Known constant).
+* **$\theta_1$**: The angle of depression (from the horizontal line to the bottom of the object).
+* **$\theta_2$**: The angle of elevation (from the horizontal line to the top of the object).
+* **$d$**: The horizontal distance between the device and the object (Calculated).
+* **$h_2$**: The total height of the object (Target variable).
+
+### Calculation Logic
+
+**1. Calculate Horizontal Distance ($d$)**
+Using the bottom triangle and the known device height ($h_1$), we first determine the distance to the object:
+
+$$
+d = \frac{h_1}{\tan(\theta_1)}
+$$
+
+**2. Calculate Total Height ($h_2$)**
+Once $d$ is known, we calculate the upper portion of the object and add it to the device's height:
+
+$$
+h_2 = h_1 + (d \cdot \tan(\theta_2))
+$$
+
+**Combined Formula:**
+The entire operation can be expressed in a single equation:
+
+$$
+h_2 = h_1 \left( 1 + \frac{\tan(\theta_2)}{\tan(\theta_1)} \right)
+$$
 
 # series of devices
 ![alt text](?raw=true)
